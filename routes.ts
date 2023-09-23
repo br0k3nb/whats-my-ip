@@ -1,11 +1,11 @@
 import express from 'express'
-import { publicIpv4, publicIpv6 } from 'public-ip';
+import { v4, v6 } from 'public-ip';
 
 const router = express.Router();
 
 router.get('/json', async (req, res) => {
     try {
-        const ipv4 = await publicIpv4();
+        const ipv4 = await v4();
     
         return res.status(200).json({ ip: ipv4 });
     } catch (err) {
@@ -15,7 +15,7 @@ router.get('/json', async (req, res) => {
 
 router.get('/json/ipv6', async (req, res) => {
     try {
-        const ipv6 = await publicIpv6();
+        const ipv6 = await v6();
     
         return res.status(200).json({ ip: ipv6 });
     } catch (err) {
@@ -25,7 +25,7 @@ router.get('/json/ipv6', async (req, res) => {
 
 router.get('/', async (req, res) => {
     try {
-        const ipv4 = await publicIpv4();
+        const ipv4 = await v4();
     
         return res.status(200).json(ipv4);
     } catch (err) {
@@ -35,7 +35,7 @@ router.get('/', async (req, res) => {
 
 router.get('/ipv6', async (req, res) => {
     try {
-        const ipv6 = await publicIpv6();
+        const ipv6 = await v6();
 
         return res.status(200).json(ipv6);
     } catch (err) {
