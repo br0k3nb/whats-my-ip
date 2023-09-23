@@ -7,3 +7,4 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(routes);
 app.listen(3001, () => console.log(`Server is running at port 3001`));
+export default app;
