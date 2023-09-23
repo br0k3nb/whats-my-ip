@@ -7,6 +7,8 @@ router.get('/json', async (req, res) => {
     try {
         const ipv4 = await v4();
     
+        console.log(req.ip);
+
         return res.status(200).json({ ip: ipv4 });
     } catch (err) {
         res.status(500).json({ message: err });
